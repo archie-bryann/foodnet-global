@@ -1,0 +1,12 @@
+.remove:hover {
+    cursor: pointer;
+}
+
+.product-link-text {
+    font-size: 16px;
+    color:black;
+}
+
+.q_d {
+    border: 1px solid #7fad39;
+}

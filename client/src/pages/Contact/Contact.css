@@ -1,0 +1,20 @@
+.top-space {
+    display: none;
+}
+
+.feedback-2 {
+    display: none;
+}
+
+@media(max-width: 495px) {
+    .feedback {
+        display: none;
+    }
+    .feedback-2 {
+        display: block;
+        font-size: 50px;
+    }
+    .top-space {
+        display: block;
+    }
+}
