@@ -66,6 +66,15 @@ function CartProduct({cartId,quantity,id,categoryId,name,description,image,price
         })
     }
 
+    // listen for input event on numInput
+    function disallowInvalid(e) {
+        if (e.key === "-" || e.key === "0") {
+            e.preventDefault();
+            setQuantity(1);
+            return false;
+        }
+    }
+
     return (
         <React.Fragment>
             {
@@ -106,7 +115,7 @@ function CartProduct({cartId,quantity,id,categoryId,name,description,image,price
                     {less ? (
                         cQuantity
                     ) : (
-                        <input className = "q_d" type = "number" value = {cQuantity} onChange = {updateQuantity} style = {{width:'51px'}} />
+                        <input className = "q_d" type = "number" value = {cQuantity} onChange = {updateQuantity} style = {{width:'51px'}}  min="1" onKeyDown = {disallowInvalid} />
                     ) }
                 </td>
                 <td>{Number(subTotal).toFixed(2).toLocaleString(undefined, {maximumFractionDigits:2})}</td> {/** to 2 d.p. */}

@@ -13,11 +13,15 @@ function Order({id,subtotal,logisticFee,status,timestamp,more,r}) {
         const format = 'hh:mm:ss';
         const time = moment(timestamp);
         const checkerTime = moment('17:00:00',format);
-
-        if(time.isAfter(checkerTime)) {
+        if(time.format('dddd') === 'Sunday' && time.isBefore(checkerTime)) {
+            /** set order arrival to next day */
             return tomorrow;
         } else {
-            return today;
+            if(time.isAfter(checkerTime)) {
+                return tomorrow;
+            } else {
+                return today;
+            }
         }
     }
 

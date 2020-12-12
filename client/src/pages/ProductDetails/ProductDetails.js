@@ -137,7 +137,15 @@ function ProductDetails({title, apiRootUrl, clientRootUrl, match, loggedInStatus
             })
             }
         }
-      
+
+    // listen for input event on numInput
+    function disallowInvalid(e) {
+        if (e.key === "-" || e.key === "0") {
+            e.preventDefault();
+            setQuantity(1);
+            return false;
+        }
+    }
     
 
     return (
@@ -188,7 +196,7 @@ function ProductDetails({title, apiRootUrl, clientRootUrl, match, loggedInStatus
                             <option>Small</option>
                         </select>
                         <div style = {{marginTop:'-20px'}}></div>
-                        <input type = "number" value = {quantity} onChange = {(e)=>setQuantity(e.target.value)} />
+                        <input type = "number" value = {quantity} onChange = {(e)=>setQuantity(e.target.value)}  min="1" onKeyDown = {disallowInvalid} />
                         
                         {(product.out_of_stock === 0) ? 
                         (

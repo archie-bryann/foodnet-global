@@ -1,6 +1,7 @@
 import React from 'react'
 import './Footer.css'
 import {Link} from 'react-router-dom'
+import moment from 'moment'
 
 function Footer({title, clientRootUrl}) {
     return (
@@ -24,10 +25,10 @@ function Footer({title, clientRootUrl}) {
                     <div className = "footer-col-3">
                         <h3>Useful Links</h3>
                         <ul>
-                            <li><Link to = "/terms-of-service" className = "light">Terms of Service</Link></li>
+                            <li><Link to = "/terms-and-conditions" className = "light">Terms and Conditions</Link></li>
                             <li><Link to = "/privacy-policy" className = "light">Privacy Policy</Link></li>
-                            <li><Link to = "/returns-and-exchange-policy" className = "light">Returns and Exchange Policy</Link></li>
-                            <li><Link to = "/shipping-policy" className = "light">Shipping Policy</Link></li>
+                            <li><Link to = "/returns-policy" className = "light">Returns Policy</Link></li>
+                            {/* <li><Link to = "/shipping-policy" className = "light">Shipping Policy</Link></li> */}
                         </ul>
                     </div>
                     <div className = "footer-col-4">
@@ -41,7 +42,7 @@ function Footer({title, clientRootUrl}) {
                     </div>
                 </div>
                 <hr />
-                <p className = "copyright">Copyright 2020 - {title}</p>
+                <p className = "copyright">Copyright {moment().format('YYYY')} - {title}</p>
             </div>
         </div>
     )

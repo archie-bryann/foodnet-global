@@ -36,6 +36,9 @@ function OrderDetails({title, apiRootUrl, clientRootUrl, loggedInStatus, match, 
 
 
     useEffect(()=>{
+        /** This is a just a patch
+         * Update: To store the date of arrival
+         */
         const format = 'hh:mm:ss';
         const time = moment(timestamp);
         const checkerTime = moment('17:00:00',format);
@@ -45,6 +48,12 @@ function OrderDetails({title, apiRootUrl, clientRootUrl, loggedInStatus, match, 
         } else {
             setNote(today);
         }
+
+        if(time.format('dddd') === 'Sunday' && time.isBefore(checkerTime)) {
+            /** set order arrival to next day */
+            setNote(tomorrow);
+        }
+
     }, [timestamp])
 
     useEffect(()=>{
@@ -111,9 +120,9 @@ function OrderDetails({title, apiRootUrl, clientRootUrl, loggedInStatus, match, 
                     </table>
                 </div>
                 <br />
-                <ul>
+                {/* <ul>
                     <li style = {{textDecoration:'underline'}}><b>*</b>{(status==='pending')&&(<u>{note}</u>)}</li>
-                </ul>
+                </ul> */}
                 {/* show only if the order is cancelled */}
                 {/* <div className = "order-div">
                 <button className = "btn">Re-order</button>

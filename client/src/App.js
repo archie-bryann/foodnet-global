@@ -27,10 +27,10 @@ import Test from './pages/Test/Test';
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import NotAvailable from './pages/NotAvailable/NotAvailable';
-import TermsOfServices from './pages/TermsOfService/TermsOfService'
+import TermsAndConditions from './pages/TermsAndConditions/TermsAndConditions'
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy'
-import ReturnsAndExchangePolicy from './pages/ReturnsAndExchangePolicy/ReturnsAndExchangePolicy'
-import ShippingPolicy from './pages/ShippingPolicy/ShippingPolicy'
+import ReturnsPolicy from './pages/ReturnsPolicy/ReturnsPolicy'
+// import ShippingPolicy from './pages/ShippingPolicy/ShippingPolicy'
 
 
 // export const UserContext = React.createContext();
@@ -164,7 +164,7 @@ function App() {
 
             <Route path = "/categories" exact = {true} component = {({match})=><Categories loggedInStatus = {loggedInStatus} title = {title} apiRootUrl = {apiRootUrl} clientRootUrl = {clientRootUrl}  match = {match} cartNum = {cartNum} token = {token} imagesRootUrl = {imagesRootUrl}  />} />
 
-            <Route path = "/about" exact = {true} component = {({match})=><About loggedInStatus = {loggedInStatus} title = {title} apiRootUrl = {apiRootUrl} clientRootUrl = {clientRootUrl} match = {match} cartNum = {cartNum} token = {token} imagesRootUrl = {imagesRootUrl} /> }  />
+            <Route path = "/about" exact = {true} component = {({match})=><About loggedInStatus = {loggedInStatus} title = {title} apiRootUrl = {apiRootUrl} clientRootUrl = {clientRootUrl} match = {match} cartNum = {cartNum} token = {token} imagesRootUrl = {imagesRootUrl} email = {email} /> }  />
 
             <Route path = "/contact" exact = {true} component = {({match})=><Contact loggedInStatus = {loggedInStatus} title = {title} apiRootUrl = {apiRootUrl} clientRootUrl = {clientRootUrl} email = {email} match = {match} cartNum = {cartNum} token = {token} imagesRootUrl = {imagesRootUrl} />} />
 
@@ -181,7 +181,7 @@ function App() {
 
             <Route path = "/cart" exact = {true} component = {({match})=><Cart loggedInStatus = {loggedInStatus} title = {title} apiRootUrl = {apiRootUrl} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus} match = {match} token = {token} errorMessage = {errorMessage} cartNum = {cartNum} decreaseCartNum = {decreaseCartNum} requireAuth = {requireAuth}  imagesRootUrl = {imagesRootUrl} />} />
 
-            <Route path = "/checkout" exact = {true} component = {({match})=><Checkout loggedInStatus = {loggedInStatus} title = {title} apiRootUrl = {apiRootUrl} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus} match = {match} token = {token} errorMessage = {errorMessage} paystackPublicTestKey = {paystackPublicTestKey} paystackPublicLiveKey = {paystackPublicLiveKey} cartNum = {cartNum} setCartNumToZero = {setCartNumToZero} requireAuth = {requireAuth}  imagesRootUrl = {imagesRootUrl} />} />
+            <Route path = "/checkout" exact = {true} component = {({match})=><Checkout loggedInStatus = {loggedInStatus} title = {title} apiRootUrl = {apiRootUrl} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus} match = {match} token = {token} errorMessage = {errorMessage} paystackPublicTestKey = {paystackPublicTestKey} paystackPublicLiveKey = {paystackPublicLiveKey} cartNum = {cartNum} setCartNumToZero = {setCartNumToZero} requireAuth = {requireAuth}  imagesRootUrl = {imagesRootUrl} email = {email} />} />
 
             <Route path = "/orders" exact = {true} component = {({match})=><Orders loggedInStatus = {loggedInStatus} title = {title} apiRootUrl = {apiRootUrl} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus} match = {match} cartNum = {cartNum} requireAuth = {requireAuth} token = {token} errorMessage = {errorMessage} imagesRootUrl = {imagesRootUrl} />} />
 
@@ -193,10 +193,10 @@ function App() {
 
             <Route path = "/not-available" exact = {true} component = {()=><NotAvailable title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token}  imagesRootUrl = {imagesRootUrl} />} />
 
-            <Route path = "/terms-of-service" exact = {true} component = {()=><TermsOfServices title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token} imagesRootUrl = {imagesRootUrl} />} />
-            <Route path = "/privacy-policy" exact = {true} component = {()=><PrivacyPolicy title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token}  imagesRootUrl = {imagesRootUrl}/>} />
-            <Route path = "/returns-and-exchange-policy" exact = {true} component = {()=><ReturnsAndExchangePolicy title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token}  imagesRootUrl = {imagesRootUrl}/>} />
-            <Route path = "/shipping-policy" exact = {true} component = {()=><ShippingPolicy title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token} imagesRootUrl = {imagesRootUrl} />} />
+            <Route path = "/terms-and-conditions" exact = {true} component = {()=><TermsAndConditions title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token} imagesRootUrl = {imagesRootUrl} email = {email} />} />
+            <Route path = "/privacy-policy" exact = {true} component = {()=><PrivacyPolicy title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token}  imagesRootUrl = {imagesRootUrl} email = {email}/>}  />
+            <Route path = "/returns-policy" exact = {true} component = {()=><ReturnsPolicy title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token}  imagesRootUrl = {imagesRootUrl} email = {email}/>}  />
+            {/* <Route path = "/shipping-policy" exact = {true} component = {()=><ShippingPolicy title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token} imagesRootUrl = {imagesRootUrl} />} email = {email} /> */}
 
             <Route path = "/logout" exact = {true} component = {(v)=><Logout title = {title} clientRootUrl = {clientRootUrl} apiRootUrl = {apiRootUrl} loggedInStatus = {loggedInStatus} v = {v} cartNum = {cartNum} requireAuth = {requireAuth} token = {token} imagesRootUrl = {imagesRootUrl} />} />
 

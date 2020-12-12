@@ -13,7 +13,7 @@ import moment from 'moment'
 
 toast.configure();
 
-function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, errorMessage, paystackPublicTestKey, paystackPublicLiveKey, cartNum, setCartNumToZero, requireAuth, imagesRootUrl}) {
+function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, errorMessage, paystackPublicTestKey, paystackPublicLiveKey, cartNum, setCartNumToZero, requireAuth, imagesRootUrl, email}) {
 
     document.title = `Checkout - ${title}`;
 
@@ -47,16 +47,23 @@ function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, erro
     const tomorrow = "Your order will be delivered before 8pm tomorrow.";
     /** ./end of FormStates */
 
+    
 
     useEffect(()=>{
         const format = 'hh:mm:ss';
         const time = moment();
         const checkerTime = moment('17:00:00',format);
 
-        if(time.isAfter(checkerTime)) {
+        /** if order is made on a Sunday and is before 17:00:00 */
+        if(time.format('dddd') === 'Sunday' && time.isBefore(checkerTime)) {
+            /** set order arrival to next day */
             setNote(tomorrow);
         } else {
-            setNote(today);
+            if(time.isAfter(checkerTime)) {
+                setNote(tomorrow);
+            } else {
+                setNote(today);
+            }
         }
     }, [])
 
@@ -565,7 +572,7 @@ function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, erro
                             <br />
                             <ul>
                                 <li style = {{textDecoration:'underline'}}><b>*</b>{note}</li>
-                                <li style = {{textDecoration:'underline'}}><b>*</b>Once your order is placed, it cannot be cancelled.</li>
+                                <li style = {{textDecoration:'underline'}}><b>*</b>To cancel an order, send an email to {email} with the order number.</li>
                             </ul>
                             
                             

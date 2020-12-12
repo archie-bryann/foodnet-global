@@ -5,9 +5,7 @@ import FeaturedCategories from '../../components/FeaturedCategories/FeaturedCate
 import Products from '../../components/Products/Products'
 import Header from '../../components/Header/Header'
 import axios from 'axios'
-import Offer from '../../components/Offer/Offer'
 import Testimonials from '../../components/Testimonials/Testimonial'
-import Brands from '../../components/Brands/Brands'
 import Loader from '../../components/Loader/Loader'
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -59,7 +57,7 @@ function Home({title,apiRootUrl, clientRootUrl, loggedInStatus, match, cartNum,t
                 <div className = "row"> 
                     <div className = "col-2">
                         <h1>Bringing The Market <br/>To You!</h1>
-                        <p>Success isn't always about greatness. It's about consistency. Consistent<br/>hard work gains success. Greatness will come.</p>
+                        <p>Shop at Foodnet and make this December, one to remember.</p>
                         <form onSubmit = {(e)=>{
                             e.preventDefault();
                             // const a = document.getElementById("searchButton");

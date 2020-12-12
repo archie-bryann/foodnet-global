@@ -38,14 +38,19 @@ function Orders({apiRootUrl,token,requireAuth,errorMessage,location}) {
                     <h2 style = {{marginBottom:'15px'}}>Orders</h2>
                     <table>
                         <tr>
-                            <th>Order</th>
-                            <th>User</th>
-                            <th>Status</th>
+                        <th>Order</th>
                             <th>Date</th>
-                            <th>Total</th>
+                            <th>Deadline</th>
+                            <th>Market Fee (₦)</th>
+                            <th>Delivery Fee (₦)</th>
+                            <th>Profit (₦)</th>
+                            <th>Total (₦)</th>
                             <th>Action</th>
                         </tr>
-                        {orders.map(({id,userId,status,total,timestamp})=><Order key = {id} id = {id} userId = {userId} status = {status} total = {total} timestamp = {timestamp} />)}
+                        {orders.map((order)=>{
+                            console.log(order)
+                        })}
+                        {orders.map(({id,subtotal,logisticFee,status,total,timestamp,userId})=><Order key = {id} id = {id} userId = {userId} status = {status} subtotal = {subtotal} logisticFee = {logisticFee} total = {total} timestamp = {timestamp} />)}
                     </table>
                 </div>
             </main>

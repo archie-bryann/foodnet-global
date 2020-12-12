@@ -25,6 +25,7 @@ function UserDetails({apiRootUrl,token,requireAuth,match,errorMessage}) {
     const [country, setCountry] = useState('');
     const [redr,setRedr] = useState(false);
     const [orders,setOrders] = useState([]);
+    const [suspended,setSuspended] = useState(null);
 
     useEffect(()=>{
         setLoading(true);
@@ -46,7 +47,7 @@ function UserDetails({apiRootUrl,token,requireAuth,match,errorMessage}) {
                 setCity(data.city);
                 setStateRegion(data.state_region);
                 setCountry(data.country);
-                
+                setSuspended(data.suspended)
                 /** GET USER ORDERS */
 
                 axios.get(`${apiRootUrl}order/user/${userId}`, {
@@ -118,6 +119,10 @@ function UserDetails({apiRootUrl,token,requireAuth,match,errorMessage}) {
         setCountry(e.target.value);
     }
 
+    function changeSuspended(e) {
+        setSuspended(e.target.value);
+    }
+
     function updateUser(e) {
         e.preventDefault();
         setLoading(true);
@@ -129,7 +134,8 @@ function UserDetails({apiRootUrl,token,requireAuth,match,errorMessage}) {
             address,
             additional_info:additionalInfo,
             state_region:stateRegion,
-            city
+            city,
+            suspended
         }, {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -210,6 +216,14 @@ function UserDetails({apiRootUrl,token,requireAuth,match,errorMessage}) {
                             <input type = "text" onChange = {changeCountry} value = {country} />
                         </div>
 
+                        <div>
+                            <label>Suspended</label>
+                            <select value = {suspended} onChange = {changeSuspended}>
+                                <option>0</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+
                         <div style = {{marginTop:'14px'}}>
                             <button className = "btn block" onClick = {updateUser}>Update User</button>
                         </div>
@@ -235,4 +249,4 @@ function UserDetails({apiRootUrl,token,requireAuth,match,errorMessage}) {
     )
 }
 
-export default UserDetails
+export default UserDetails;

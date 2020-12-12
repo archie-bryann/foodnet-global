@@ -33,7 +33,7 @@ function Home({requireAuth,apiRootUrl,token}) {
             <div className = "main__title">
               <img src = "assets/images/hello.svg" />
               <div className = "main_greeting">
-                <h1>Hello Admin</h1>
+                <h1>Hello Amadurs Logistics and Courier Services</h1>
                 <p>Welcome to your dashboard</p>
               </div>
             </div>

@@ -1,11 +1,10 @@
-import React,  {useState} from 'react'
+import React,  {Fragment, useState} from 'react'
 import Header from '../../components/Header/Header';
 import './Account.css'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom';
 import { useLastLocation } from 'react-router-last-location';
 import Loader from '../../components/Loader/Loader';
-
+import {Link} from 'react-router-dom'
 
 function Account({title, clientRootUrl, apiRootUrl, loggedInStatus, cartNum,verifyAuth, token, imagesRootUrl}) {
 
@@ -26,14 +25,11 @@ function Account({title, clientRootUrl, apiRootUrl, loggedInStatus, cartNum,veri
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     const [isLoading, setIsLoading] = useState(false);
-
     const [color, setColor] = useState('red');
-
     const [redr, setRedr] = useState(false);
-
     const [t,setT] = useState(false);
+    const [o,setO] = useState(false);
 
     function registerTab() {
         setRegFormTransform('translateX(0px)');
@@ -161,6 +157,11 @@ function Account({title, clientRootUrl, apiRootUrl, loggedInStatus, cartNum,veri
                     // show message
                     setColor('green');
                     setLoginErr(data.message);
+                } else if(data.error === 10) {
+                    // show message
+                    setColor('red');
+                    setO(true);
+                    setLoginErr(data.message);
                 } else {
                     // show error
                     setColor('red');
@@ -202,7 +203,9 @@ function Account({title, clientRootUrl, apiRootUrl, loggedInStatus, cartNum,veri
 
 
                                 <form id = "LoginForm" style = {{transform:loginFormTransform,marginTop:'-40px'}}>
-                                    <p style = {{color,fontSize:'13.5px',float:'left'}}>{loginErr}</p>
+                                    <p style = {{color,fontSize:'13.5px',float:'left'}}>{loginErr}{o&&(
+                                        <Fragment>Click <Link to = '/terms-and-conditions?account=suspension' style = {{color:'blue',fontSize:'13.5px'}}>here</Link> to know why this may have happened!</Fragment>
+                                    )}</p>
                                     <input type = "text" name = "email" placeholder = "Email" onChange = {changeEmail} value = {email} />
                                     <input type = "password" name = "password" placeholder = "Password" onChange = {changePassword} value = {password} />
                                     <button type = "submit" className = "btn" onClick = {login}>Login</button>
