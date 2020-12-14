@@ -25,7 +25,7 @@ function Verify({title,clientRootUrl,apiRootUrl,match,loggedInStatus, verifyAuth
             if(data.error === 0) {
                 // store new token
                 localStorage.setItem('wpt', data.token);
-                localStorage.setItem('token', data.email);
+                localStorage.setItem('email', data.email);
                 localStorage.setItem('userId', data.userId);
                 localStorage.setItem('v_token', data.v_token);
 
