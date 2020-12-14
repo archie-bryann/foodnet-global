@@ -1,8 +1,18 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, useEffect, useRef} from 'react'
 import Header from '../../components/Header/Header'
-import Subhead from '../../components/Subhead/Subhead';
+import Subhead from '../../components/Subhead/Subhead'
 
 function PrivacyPolicy({title,clientRootUrl,loggedInStatus,cartNum,token, imagesRootUrl, email}) {
+
+    // const {account} = queryString.parse(location.search);
+    // const myRef = useRef(null);
+
+    // useEffect(()=>{
+    //     if(account) {
+    //         /**  */
+    //     }
+    // })
+
     return (
         <Fragment>
             <Header title = {title} clientRootUrl = {clientRootUrl}  loggedInStatus = {loggedInStatus} cartNum = {cartNum} token = {token} imagesRootUrl = {imagesRootUrl}  />

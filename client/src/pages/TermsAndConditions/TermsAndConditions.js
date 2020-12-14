@@ -1,10 +1,21 @@
-import React, {Fragment} from 'react'
+import React, {Fragment,useEffect,useRef} from 'react'
 import Header from '../../components/Header/Header'
 import { Link } from 'react-router-dom'
 import Subhead from '../../components/Subhead/Subhead';
+import queryString from 'query-string'
 
+function TermsAndConditions({title,clientRootUrl,loggedInStatus,cartNum,token, imagesRootUrl,email, location}) {
 
-function TermsAndConditions({title,clientRootUrl,loggedInStatus,cartNum,token, imagesRootUrl,email}) {
+    // const {account} = queryString.parse(location.search);
+    // // const myRef = useRef(null);
+    // const containerRef = useRef(null);
+
+    // useEffect(()=>{
+    //     if(account) {
+    //         containerRef.current.focus();
+    //     }
+    // })
+
     return (
         <Fragment>
             <Header title = {title} clientRootUrl = {clientRootUrl}  loggedInStatus = {loggedInStatus} cartNum = {cartNum} token = {token}  imagesRootUrl = {imagesRootUrl} />
@@ -125,21 +136,21 @@ function TermsAndConditions({title,clientRootUrl,loggedInStatus,cartNum,token, i
                     <p><b>9.2</b> Return Approval of All returned items are subject to inspection and approval by the authorized representative of Foodnet Online Mart. For a returned item to be approved for return, it must be in an ‘as new’ condition and returned in the original, undamaged packaging along with the accessories received with it. Items that are not returned in the above condition will be sent back to you and payment will not be refunded.</p>
 
                     {/* <p><b>9.3</b> Items returned without all accompanying accessories and packaging such as: 
-Fashion accessories 
-Personal hygiene items (combs, toothbrushes, hair brushes, toothpastes and other similar products) 
-Cosmetic products 
-Any form of underwear 
-Fragrances 
-Beauty products 
-Books 
-Toys 
-Would be replaced with another of the same product, refunded to the account linked to your debit card (if you paid by debit card) or refunded by bank transfer (if you paid by bank deposit or cash only). </p> */}
+                    Fashion accessories 
+                    Personal hygiene items (combs, toothbrushes, hair brushes, toothpastes and other similar products) 
+                    Cosmetic products 
+                    Any form of underwear 
+                    Fragrances 
+                    Beauty products 
+                    Books 
+                    Toys 
+                    Would be replaced with another of the same product, refunded to the account linked to your debit card (if you paid by debit card) or refunded by bank transfer (if you paid by bank deposit or cash only). </p> */}
                     <p><b>9.4</b>You will be asked to choose one of the following options: The shipping will be free if return is due to Incorrect Delivery. Otherwise, you’ll need to pay for the cost of shipping goods back to Foodnet Online Mart. The period of refund will not exceed 10 working days from receipt of returned goods to us and the accompanying documents, if approval of your application for the return of the goods is granted.</p>
   
 
                     <Subhead>10. CUSTOMER COMPLAINTS</Subhead>
  
-                    <p><b>10.1</b> Any Customer complaints should be addressed to the Foodnet Customer Care Line 092910964 or any other customer care line stated on the website. An email should be sent to <a href = {`mailto:${email}`}  className = "___link">{email}</a>.</p>
+                    <p><b>10.1</b> Any Customer complaints should be sent to <a href = {`mailto:${email}`}  className = "___link">{email}</a>.</p>
 
                     <Subhead>11. SPECIAL OFFERS PROMOTIONS AND COMPETITIONS</Subhead>
 
@@ -149,14 +160,14 @@ Would be replaced with another of the same product, refunded to the account link
  
                     <p><b>11.3</b>We reserve the right to offer in our complete discretion different customers different special offers, promotions and the ability to enter different competitions.</p>
 
-                    <Subhead>12. CANCELLATION OF DELIVERIES AND SUSPENSION OF YOUR ACCOUNT</Subhead>
-  
+                    <Subhead >12. CANCELLATION OF DELIVERIES AND SUSPENSION OF YOUR ACCOUNT</Subhead>
+                    {/* <div> */}
                     <p><b>12.1</b> We reserve the right to cancel your delivery at any time if we suspect fraud, have reason to believe you are in breach of these Terms and Conditions or any other terms and conditions relating to your order, or if there is an outstanding payment for any account registered at your address.</p>
 
                     <p><b>12.2</b> In addition to our right to cancel your order, we reserve the right to suspend your account. Your account will remain suspended until you contact our customer centre at <a href = {`mailto:${email}`}   className = "___link">{email}</a> and remedy any breaches which are capable of remedy, or provide any information reasonably requested by our centre advisers to enable them to reactivate your account. </p>
   
                     <p><b>12.3</b> In the rare event that unforeseen operational or technical issues occur, we may need to cancel or rearrange delivery. If this happens we will endeavour to contact you to arrange an alternative delivery date.</p>
-
+                   {/* </div> */}
                     <Subhead>13. COPYRIGHT AND TRADEMARKS</Subhead>
 
                     <p><b>13.1</b> All intellectual property rights, whether registered or unregistered, in the Site, information content on the Site and all the website design, including, but not limited to, text, graphics, software, photos, video, music, sound, and their selection and arrangement, and all software compilations, underlying source code and software shall remain our property.</p> 

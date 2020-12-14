@@ -187,14 +187,14 @@ function App() {
 
             <Route path = "/order/:orderId" exact = {true} component = {({match})=><Order loggedInStatus = {loggedInStatus} title = {title} apiRootUrl = {apiRootUrl} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus} match = {match} cartNum = {cartNum}  requireAuth = {requireAuth} token = {token} errorMessage = {errorMessage}  imagesRootUrl = {imagesRootUrl} />}  />
 
-            <Route path = "/account" exact = {true} component = {({match})=><Account title = {title} clientRootUrl = {clientRootUrl} apiRootUrl = {apiRootUrl} match = {match} loggedInStatus = {loggedInStatus} cartNum = {cartNum} verifyAuth = {verifyAuth} token = {token} errorMessage = {errorMessage}  imagesRootUrl = {imagesRootUrl} />  } />
+            <Route path = "/account" exact = {true} component = {({match})=><Account title = {title} clientRootUrl = {clientRootUrl} apiRootUrl = {apiRootUrl} match = {match} loggedInStatus = {loggedInStatus} cartNum = {cartNum} verifyAuth = {verifyAuth} token = {token} errorMessage = {errorMessage}  imagesRootUrl = {imagesRootUrl} oEmail = {email} />  } />
 
             <Route path = "/verify/:email/:v_token" exact = {true} component = {({match})=><Verify title = {title} clientRootUrl = {clientRootUrl} apiRootUrl = {apiRootUrl} match = {match} loggedInStatus = {loggedInStatus} verifyAuth = {verifyAuth} token = {token} errorMessage = {errorMessage}  imagesRootUrl = {imagesRootUrl} />} />
 
             <Route path = "/not-available" exact = {true} component = {()=><NotAvailable title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token}  imagesRootUrl = {imagesRootUrl} />} />
 
-            <Route path = "/terms-and-conditions" exact = {true} component = {()=><TermsAndConditions title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token} imagesRootUrl = {imagesRootUrl} email = {email} />} />
-            <Route path = "/privacy-policy" exact = {true} component = {()=><PrivacyPolicy title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token}  imagesRootUrl = {imagesRootUrl} email = {email}/>}  />
+            <Route path = "/terms-and-conditions" exact = {true} component = {({location})=><TermsAndConditions title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token} imagesRootUrl = {imagesRootUrl} email = {email}  location = {location}  />} />
+            <Route path = "/privacy-policy" exact = {true} component = {({location})=><PrivacyPolicy title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token}  imagesRootUrl = {imagesRootUrl} email = {email} location = {location} />}  />
             <Route path = "/returns-policy" exact = {true} component = {()=><ReturnsPolicy title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token}  imagesRootUrl = {imagesRootUrl} email = {email}/>}  />
             {/* <Route path = "/shipping-policy" exact = {true} component = {()=><ShippingPolicy title = {title} clientRootUrl = {clientRootUrl} loggedInStatus = {loggedInStatus}  cartNum = {cartNum} token = {token} imagesRootUrl = {imagesRootUrl} />} email = {email} /> */}
 

@@ -76,6 +76,7 @@ function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, erro
             }
         })
         .then(({data})=>{
+        
             setIsLoading(false);
             setFirstName(data.firstname);
             setLastName(data.lastname);

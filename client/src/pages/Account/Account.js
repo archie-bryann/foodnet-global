@@ -6,7 +6,7 @@ import { useLastLocation } from 'react-router-last-location';
 import Loader from '../../components/Loader/Loader';
 import {Link} from 'react-router-dom'
 
-function Account({title, clientRootUrl, apiRootUrl, loggedInStatus, cartNum,verifyAuth, token, imagesRootUrl}) {
+function Account({title, clientRootUrl, apiRootUrl, loggedInStatus, cartNum,verifyAuth, token, imagesRootUrl,oEmail}) {
 
     document.title = `Account - ${title}`;
 
@@ -202,9 +202,9 @@ function Account({title, clientRootUrl, apiRootUrl, loggedInStatus, cartNum,veri
 
 
 
-                                <form id = "LoginForm" style = {{transform:loginFormTransform,marginTop:'-40px'}}>
+                                <form id = "LoginForm" style = {{transform:loginFormTransform,marginTop:'-58px'}}>
                                     <p style = {{color,fontSize:'13.5px',float:'left'}}>{loginErr}{o&&(
-                                        <Fragment>Click <Link to = '/terms-and-conditions?account=suspension' style = {{color:'blue',fontSize:'13.5px'}}>here</Link> to know why this may have happened!</Fragment>
+                                        <Fragment>Your account will remain suspended until you contact our customer centre at <a href = {`mailto:${oEmail}`} className = "___link" style = {{fontSize:'13.5px'}}>{oEmail}</a></Fragment>
                                     )}</p>
                                     <input type = "text" name = "email" placeholder = "Email" onChange = {changeEmail} value = {email} />
                                     <input type = "password" name = "password" placeholder = "Password" onChange = {changePassword} value = {password} />
@@ -213,7 +213,7 @@ function Account({title, clientRootUrl, apiRootUrl, loggedInStatus, cartNum,veri
                                 </form>
 
 
-                                <form id = "RegForm" style = {{transform:regFormTransform,marginTop:'-65px'}}>
+                                <form id = "RegForm" style = {{transform:regFormTransform,marginTop:'-52px'}}>
                                     <p style = {{color,fontSize:'13.5px',float:'left'}}>{signupErr}</p>
                                     <input type = "text" name = "firstname" placeholder = "Firstname" onChange = {changeFirstname} value = {firstname} />
                                     <input type = "text" name = "lastname" placeholder = "Lastname" onChange = {changeLastname} value = {lastname} />

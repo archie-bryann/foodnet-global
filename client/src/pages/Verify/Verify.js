@@ -25,10 +25,14 @@ function Verify({title,clientRootUrl,apiRootUrl,match,loggedInStatus, verifyAuth
             if(data.error === 0) {
                 // store new token
                 localStorage.setItem('wpt', data.token);
+                localStorage.setItem('token', data.email);
+                localStorage.setItem('userId', data.userId);
+                localStorage.setItem('v_token', data.v_token);
 
                 // redirect to homepage
                 // setRedr(true);
-                window.location = "/";
+                window.location = "/cart";
+                // hello world
             } else {
 
             setWaiting(false);
@@ -41,7 +45,7 @@ function Verify({title,clientRootUrl,apiRootUrl,match,loggedInStatus, verifyAuth
             setChecking(false);
 
             // console.log(err)
-                        toast.error(errorMessage, {
+            toast.error(errorMessage, {
                 position: toast.POSITION.BOTTOM_RIGHT
             }) 
             
