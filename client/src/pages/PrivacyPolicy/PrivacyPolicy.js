@@ -4,14 +4,8 @@ import Subhead from '../../components/Subhead/Subhead'
 
 function PrivacyPolicy({title,clientRootUrl,loggedInStatus,cartNum,token, imagesRootUrl, email}) {
 
-    // const {account} = queryString.parse(location.search);
-    // const myRef = useRef(null);
+    document.title = `Privacy Policy - ${title}`;
 
-    // useEffect(()=>{
-    //     if(account) {
-    //         /**  */
-    //     }
-    // })
 
     return (
         <Fragment>

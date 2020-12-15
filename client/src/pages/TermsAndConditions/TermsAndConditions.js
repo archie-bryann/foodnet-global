@@ -6,6 +6,8 @@ import queryString from 'query-string'
 
 function TermsAndConditions({title,clientRootUrl,loggedInStatus,cartNum,token, imagesRootUrl,email, location}) {
 
+    document.title = `Terms and Conditions - ${title}`;
+
     // const {account} = queryString.parse(location.search);
     // // const myRef = useRef(null);
     // const containerRef = useRef(null);
@@ -85,7 +87,8 @@ function TermsAndConditions({title,clientRootUrl,loggedInStatus,cartNum,token, i
 
                     <p><b>5.3</b> Please note, for cancellation to be effective, an email should be sent to <a href = {`mailto:${email}`} className = "___link">{email}</a>.</p>
 
-                    <p><b>5.4</b> Any orders that have not been cancelled prior to the expiry of the 10 minutes, the customer would be charged the cancellation fee which is equivalent to the delivery fee, and also the fees that pertains to 5.1 above.</p>
+                    <p><b>5.4</b> Any orders that have not been cancelled prior to the expiry of the 10 minutes, the customer would be charged the cancellation fee which is equivalent to the delivery fee, and also the fees that pertains to 5.1 above only if the products have not yet been delivered.</p>
+                    {/* <p><b>5.4</b> Any orders that have not been cancelled prior to the expiry of the 10 minutes cannot be cancelled.</p> */}
 
                     <Subhead>6. METHODS OF PAYMENT</Subhead>
 
@@ -111,7 +114,6 @@ function TermsAndConditions({title,clientRootUrl,loggedInStatus,cartNum,token, i
                     <p><b>7.7</b> Should you fail to be present for your delivery, if you want it delivered to another location, a new cost of delivery would be added. </p>
 
                     <p><b>7.8</b> Foodnet will ordinarily only make deliveries when an appropriate person is able to receive the delivery.</p>
-
                     
                     <Subhead>8. DEFECTIVE GOODS AND DISSATISFACTION</Subhead>
 
@@ -127,25 +129,20 @@ function TermsAndConditions({title,clientRootUrl,loggedInStatus,cartNum,token, i
   
                     <p><b>9.1.2</b> You have proof of purchase (receipt). </p>
 
-                    <p><b>9.1.3</b> The goods must be in an ‘as new’ condition and returned in the original, undamaged packaging along with the accessories. </p>
+                    <p><b>9.1.3</b> The product is damaged on delivery.</p>
+
+                    {/* <p><b>9.1.4</b> The goods must be in an ‘as new’ condition and returned in the original, undamaged packaging along with the accessories. </p> */}
+
+                    {/* <p><b>N.B.</b> All f</p> */}
  
-                    <p><b>9.1.4</b> The product must not have been used or opened.</p>
+                    {/* <p><b>9.1.5</b> The product must not have been used or opened.</p>
   
-                    <p><b>9.1.5</b> All sealed items must not be opened otherwise it would not be accepted on return. Foodnet will only accept unsealed items in cases where maggots, insects or moulds are found in the item. </p>
+                    <p><b>9.1.6</b> All sealed items must not be opened otherwise it would not be accepted on return. Foodnet will only accept unsealed items in cases where maggots, insects or moulds are found in the item. </p>
 
-                    <p><b>9.2</b> Return Approval of All returned items are subject to inspection and approval by the authorized representative of Foodnet Online Mart. For a returned item to be approved for return, it must be in an ‘as new’ condition and returned in the original, undamaged packaging along with the accessories received with it. Items that are not returned in the above condition will be sent back to you and payment will not be refunded.</p>
+                    <p><b>9.2</b> Return Approval of All returned items are subject to inspection and approval by the authorized representative of Foodnet Online Mart. For a returned item to be approved for return, it must be in an ‘as new’ condition and returned in the original, undamaged packaging along with the accessories received with it. Items that are not returned in the above condition will be sent back to you and payment will not be refunded.</p> */}
 
-                    {/* <p><b>9.3</b> Items returned without all accompanying accessories and packaging such as: 
-                    Fashion accessories 
-                    Personal hygiene items (combs, toothbrushes, hair brushes, toothpastes and other similar products) 
-                    Cosmetic products 
-                    Any form of underwear 
-                    Fragrances 
-                    Beauty products 
-                    Books 
-                    Toys 
-                    Would be replaced with another of the same product, refunded to the account linked to your debit card (if you paid by debit card) or refunded by bank transfer (if you paid by bank deposit or cash only). </p> */}
-                    <p><b>9.4</b>You will be asked to choose one of the following options: The shipping will be free if return is due to Incorrect Delivery. Otherwise, you’ll need to pay for the cost of shipping goods back to Foodnet Online Mart. The period of refund will not exceed 10 working days from receipt of returned goods to us and the accompanying documents, if approval of your application for the return of the goods is granted.</p>
+{/*                   
+                    <p><b>9.4</b>You will be asked to choose one of the following options: The shipping will be free if return is due to Incorrect Delivery. Otherwise, you’ll need to pay for the cost of shipping goods back to Foodnet Online Mart. The period of refund will not exceed 10 working days from receipt of returned goods to us and the accompanying documents, if approval of your application for the return of the goods is granted.</p> */}
   
 
                     <Subhead>10. CUSTOMER COMPLAINTS</Subhead>

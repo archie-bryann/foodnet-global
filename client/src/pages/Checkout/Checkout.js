@@ -102,6 +102,7 @@ function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, erro
         .catch(err=>{
             setIsLoading(false);
         })
+        console.log(1)
     }, [apiRootUrl])
     /**  */
 
@@ -202,7 +203,7 @@ function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, erro
 
     useEffect(() => {
         setTotal(subTotals + delivery);
-        // console.log(4)
+        console.log(2)
     }, [delivery])
 
 
@@ -218,9 +219,15 @@ function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, erro
             let cartItems = data.cartItems;
             // setCartProducts(data);
             // console.log(cartItems)
-
-            setDelivery(data.fee.totalDeliveryFee);
-            setLogisticFees(data.fee.logisticFees);
+            // console.log(data.fee.totalDeliveryFee);
+            // console.log(data.fee.logisticFees);
+            
+            if(data.fee.totalDeliveryFee) {
+                setDelivery(data.fee.totalDeliveryFee);
+            }
+            if(data.fee.logisticFees) {
+                setLogisticFees(data.fee.logisticFees);
+            }
 
             if(cartItems.length < 1) {
                 setIsLoading(false);
@@ -262,6 +269,8 @@ function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, erro
                 position: toast.POSITION.BOTTOM_RIGHT
             })      
         })
+        // console.log(1)
+
     },[apiRootUrl])
 
 
@@ -322,6 +331,7 @@ function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, erro
             sum+=subtotal;
         })
         setSubTotals(sum);   
+        setIsLoading(true);
 
         // do it heres
         axios.get(`${apiRootUrl}miscellaneous/fee/${sum}/${encodeURI(city)}`,{
@@ -329,11 +339,21 @@ function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, erro
                 Authorization: `Bearer ${token}`
             }
         }).then(({data})=>{
+        setIsLoading(false);
             // console.log(data)
-            setDelivery(data.fee.totalDeliveryFee);
-            setLogisticFees(data.fee.logisticFees);
+            if(data.fee.totalDeliveryFee) {
+                setDelivery(data.fee.totalDeliveryFee);
+            }
+            if(data.fee.logisticFees) {
+                setLogisticFees(data.fee.logisticFees);
+            }
+        }).catch(err=>{
+            setIsLoading(false);
+            toast.error(errorMessage, {
+                position: toast.POSITION.BOTTOM_RIGHT
+            })
         })
-
+        /** SEE WHERE THE PROBLEM IS COMING */
     }, [cartProducts])
 
     function calculateNewSubTotalAndTotal(newQuantity, cartId) {
@@ -371,6 +391,7 @@ function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, erro
     
     function changeCity(e) {
         setCity(e.target.value);
+        setIsLoading(true);
         /** update their city in the database and reload the page */
         axios.patch(`${apiRootUrl}user/t/${localStorage.getItem('userId')}`, {
             city:e.target.value,
@@ -380,13 +401,22 @@ function Checkout({title, clientRootUrl, apiRootUrl, loggedInStatus, token, erro
                 Authorization: `Bearer ${token}`
             }
         }).then(({data})=>{
+            setIsLoading(false);
             if(data.error === 0) {
-                setDelivery(data.fee.totalDeliveryFee);
-                setLogisticFees(data.fee.logisticFees);
+                if(data.fee.totalDeliveryFee) {
+                    setDelivery(data.fee.totalDeliveryFee);                    
+                }
+                if(data.fee.logisticFees) {
+                    setLogisticFees(data.fee.logisticFees);
+                }
                 // window.location = `/checkout`;
             }
         }).catch(err=>{
+            setIsLoading(false)
             // console.log(err)
+            toast.error(errorMessage, {
+                position: toast.POSITION.BOTTOM_RIGHT
+            })
         })
     }
     /** ../end of FUNCTIONS FOR FORMS */

@@ -23,7 +23,7 @@ function Verify({title,clientRootUrl,apiRootUrl,match,loggedInStatus, verifyAuth
             // console.log(data);
             setChecking(false);
             if(data.error === 0) {
-                // store new token
+                // store new token // check App.js for what to add
                 localStorage.setItem('wpt', data.token);
                 localStorage.setItem('email', data.email);
                 localStorage.setItem('userId', data.userId);

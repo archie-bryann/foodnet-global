@@ -3,6 +3,9 @@ import Header from '../../components/Header/Header'
 import Subhead from '../../components/Subhead/Subhead';
 
 function ReturnsPolicy({title,clientRootUrl,loggedInStatus,cartNum,token, imagesRootUrl, email}) {
+
+    document.title = `Returns Policy - ${title}`;
+    
     return (
         <Fragment>
             <Header title = {title} clientRootUrl = {clientRootUrl}  loggedInStatus = {loggedInStatus} cartNum = {cartNum} token = {token}  imagesRootUrl = {imagesRootUrl} />
