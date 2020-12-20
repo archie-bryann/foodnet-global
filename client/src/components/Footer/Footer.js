@@ -36,7 +36,7 @@ function Footer({title, clientRootUrl}) {
                         <ul>
                             {/* <li>Facebook</li> */}
                             <li><a href = "https://twitter.com/ItzFoodnet" className = "light">Twitter</a></li>
-                            <li><a href = "https://www.instagram.com/ItzFoodnet/"  className = "light">Instagram</a></li>
+                            <li><a href = "https://www.instagram.com/foodnet36/"  className = "light">Instagram</a></li>
                             <li><a href = "https://www.youtube.com/channel/UCdihDlz7AT9YXagisi5-yGg?view_as=subscriber"  className = "light">YouTube</a></li>
                         </ul>
                     </div>
